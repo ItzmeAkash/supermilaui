@@ -1,4 +1,5 @@
 import React from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap CSS
 import './FrequentQuestions.css';
 
 const FrequentQuestions = () => {
@@ -16,13 +17,15 @@ const FrequentQuestions = () => {
   ];
 
   return (
-    <div className="FrequentQuestions">
-      <h2>Frequent Questions</h2>
-      {questions.map((q, index) => (
-        <div key={index} className="question-item">
-          <h3>{q.question}</h3>
-        </div>
-      ))}
+    <div className="FrequentQuestions container">
+      <h2 className="text-start">Frequent Questions</h2>
+      <div className="row">
+        {questions.map((q, index) => (
+          <div key={index} className="question-item col-12">
+            <h3>{q.question}</h3>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

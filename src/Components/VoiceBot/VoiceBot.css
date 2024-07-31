@@ -1,62 +1,77 @@
+/* VoiceBot.css */
 .Rectangles {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-}
-
-.Rectangles-left,
-.Rectangles-right {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 8px; /* Space between rectangles */
-}
-
-.rectangle {
+  }
+  
+  .rectangle {
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 15px; /* Rounded corners */
-    background: linear-gradient(136deg, rgba(59, 32, 225, 39%) 1%, #3B20E1 -14%, #15057B 24%, #090232 63%, #000000 100%); /* Gradient grey background */
-    border: none; /* No border initially */
-    transition: border 0.3s ease; /* Smooth transition for border on hover */
-}
-
-.rectangle:hover {
+    border-radius: 15px;
+    background: linear-gradient(136deg, rgba(59, 32, 225, 39%) 1%, #3B20E1 -14%, #15057B 24%, #090232 63%, #000000 100%);
     border: none;
-    border-image-slice: 1; /* Apply gradient border on hover */
+    transition: border 0.3s ease;
+    margin: 5px; /* Reduced margin between rectangles */
+  }
+  
+  .rectangle:hover {
+    border: none;
     border-radius: 15px;
     background: linear-gradient(136deg, #ffffff, #c7c7c7);
-}
-
-.rectangle:hover .rectangle-text {
-    color: black; /* Change text color to white on hover */
-}
-
-.largeLeft {
-    width: 215px;
-    height: 310px;
-}
-
-.largeRight {
-    width: 215px;
-    height: 120px;
-}
-
-.smallLeft {
-    width: 215px;
-    height: 120px;
-}
-
-.smallRight {
-    width: 215px;
-    height: 310px;
-}
-
-.rectangle-text {
+  }
+  
+  .rectangle:hover .rectangle-text {
+    color: black;
+  }
+  
+  .rectangle-text {
     font-size: 22px;
     color: white;
-    text-align: center; /* Center text horizontally */
-}
+    text-align: center;
+  }
+  
+  .largeLeft {
+    width: 215px;
+    height: 310px;
+    margin-right: 2px; /* Further reduce space on the right side */
+    margin-bottom: 5px; /* Reduce space between largeLeft and smallLeft */
+  }
+  
+  .largeRight {
+    width: 215px;
+    height: 120px;
+  }
+  
+  .smallLeft {
+    width: 215px;
+    height: 120px;
+    margin-right: 2px; /* Further reduce space on the right side */
+    margin-top: 5px; /* Reduce space between largeLeft and smallLeft */
+  }
+  
+  .smallRight {
+    width: 215px;
+    height: 310px;
+  }
+  
+  @media (max-width: 767px) {
+    .Rectangles {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .rectangle {
+      width: 100%;
+      max-width: 300px; /* Adjust max-width as needed */
+      margin: 5px 0; /* Adjust margin for mobile view */
+    }
+  
+    .largeLeft,
+    .smallLeft {
+      margin-right: 0; /* Remove margin adjustment for mobile view */
+    }
+  }
+  

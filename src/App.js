@@ -1,16 +1,17 @@
 import React from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import NavBar from './Components/NavBar/NavBar';
 import VoiceBot from './Components/VoiceBot/VoiceBot';
-import FrequentQuestions from './FrequentQuestions/FrequentQuestions';
+import FrequentQuestions from './Components/FrequentQuestions/FrequentQuestions';
 
 function App() {
   return (
     <div className="App">
       <NavBar />
       <header className="App-header">
-       <VoiceBot/>
-       <FrequentQuestions />
+        <VoiceBot />
+        <FrequentQuestions />
       </header>
     </div>
   );

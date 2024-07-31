@@ -1,0 +1,62 @@
+.Rectangles {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+.Rectangles-left,
+.Rectangles-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px; /* Space between rectangles */
+}
+
+.rectangle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px; /* Rounded corners */
+    background: linear-gradient(136deg, rgba(59, 32, 225, 39%) 1%, #3B20E1 -14%, #15057B 24%, #090232 63%, #000000 100%); /* Gradient grey background */
+    border: none; /* No border initially */
+    transition: border 0.3s ease; /* Smooth transition for border on hover */
+}
+
+.rectangle:hover {
+    border: none;
+    border-image-slice: 1; /* Apply gradient border on hover */
+    border-radius: 15px;
+    background: linear-gradient(136deg, #ffffff, #c7c7c7);
+}
+
+.rectangle:hover .rectangle-text {
+    color: black; /* Change text color to white on hover */
+}
+
+.largeLeft {
+    width: 215px;
+    height: 310px;
+}
+
+.largeRight {
+    width: 215px;
+    height: 120px;
+}
+
+.smallLeft {
+    width: 215px;
+    height: 120px;
+}
+
+.smallRight {
+    width: 215px;
+    height: 310px;
+}
+
+.rectangle-text {
+    font-size: 22px;
+    color: white;
+    text-align: center; /* Center text horizontally */
+}

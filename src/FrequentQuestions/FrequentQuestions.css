@@ -1,0 +1,40 @@
+.FrequentQuestions {
+    padding: 20px;
+    border-radius: 10px;
+    background: #f5f5f5;
+    color: white; /* Set text color to white */
+  }
+  
+  .FrequentQuestions h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: left; /* Aligns the heading to the left */
+    background: linear-gradient(136deg, rgba(59, 32, 225, 39%) 1%, #3B20E1 -14%, #15057B 24%, #090232 63%, #000000 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .question-item {
+    margin-bottom: 15px;
+    padding: 10px; /* Add padding for spacing */
+    border-radius: 5px; /* Rounded corners */
+    background: linear-gradient(136deg, rgba(59, 32, 225, 39%) 1%, #3B20E1 -14%, #15057B 24%, #090232 63%, #000000 100%);
+    color: white; /* Set initial text color to white */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for hover effects */
+    text-align: left; /* Ensure text is aligned to the left */
+  }
+  
+  .question-item:hover {
+    background: linear-gradient(136deg, #ffffff, #c7c7c7);
+    color: black; /* Change text color to black on hover */
+    border: 0.5px solid black;
+  }
+  
+  .question-item h3 {
+    font-size: 15px;
+    font-weight: normal;
+    margin: 0; /* Remove margin */
+    text-align: left; /* Ensure text is aligned to the left */
+  }
+  

@@ -1,77 +1,89 @@
-/* VoiceBot.css */
 .Rectangles {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
+  padding: 20px;
+}
+
+
+
+.rectangle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+  background: linear-gradient(136deg, rgba(59, 32, 225, 39%) 1%, #3B20E1 -14%, #15057B 24%, #090232 63%, #000000 100%);
+  border: none;
+  transition: background 0.3s ease, color 0.3s ease;
+  margin: 2px;
+}
+
+.rectangle:hover {
+  background: linear-gradient(136deg, #ffffff, #c7c7c7);
+}
+
+.rectangle:hover .rectangle-text {
+  color: black;
+}
+
+.rectangle-text {
+  font-size: 18px;
+  color: white;
+  text-align: center;
+}
+
+.largeLeft {
+  width: 215px;
+  height: 310px;
+}
+
+.largeRight {
+  width: 215px;
+  height: 120px;
+}
+
+.smallLeft {
+  width: 215px;
+  height: 120px;
+}
+
+.smallRight {
+  width: 215px;
+  height: 310px;
+}
+
+.row {
+  --bs-gutter-x: 0.9rem;
+  --bs-gutter-y: 0;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: calc(-1 * var(--bs-gutter-y));
+  margin-right: calc(-.5 * var(--bs-gutter-x));
+  margin-left: calc(-.5 * var(--bs-gutter-x));
+}
+
+.col-6 {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+  @media (max-width: 768px) {
+  .largeLeft, .largeRight {
+    height: 200px;
   }
-  
-  .rectangle {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 15px;
-    background: linear-gradient(136deg, rgba(59, 32, 225, 39%) 1%, #3B20E1 -14%, #15057B 24%, #090232 63%, #000000 100%);
-    border: none;
-    transition: border 0.3s ease;
-    margin: 5px; /* Reduced margin between rectangles */
+
+  .smallLeft, .smallRight {
+    height: 100px;
   }
+
   
-  .rectangle:hover {
-    border: none;
-    border-radius: 15px;
-    background: linear-gradient(136deg, #ffffff, #c7c7c7);
+
+}
+@media (max-width: 576px) {
+  .largeLeft, .smallRight {
+    width: 126px;
+    height: 148px;
   }
-  
-  .rectangle:hover .rectangle-text {
-    color: black;
+
+  .smallLeft, .largeRight {
+    width: 128px;
+    height: 99px;
   }
-  
-  .rectangle-text {
-    font-size: 18px;
-    color: white;
-    text-align: center;
-  }
-  
-  .largeLeft {
-    width: 215px;
-    height: 310px;
-    margin-right: 2px; /* Further reduce space on the right side */
-    margin-bottom: 5px; /* Reduce space between largeLeft and smallLeft */
-  }
-  
-  .largeRight {
-    width: 215px;
-    height: 120px;
-  }
-  
-  .smallLeft {
-    width: 215px;
-    height: 120px;
-    margin-right: 2px; /* Further reduce space on the right side */
-    margin-top: 5px; /* Reduce space between largeLeft and smallLeft */
-  }
-  
-  .smallRight {
-    width: 215px;
-    height: 310px;
-  }
-  
-  @media (max-width: 767px) {
-    .Rectangles {
-      flex-direction: column;
-      align-items: center;
-    }
-  
-    .rectangle {
-      width: 100%;
-      max-width: 300px; /* Adjust max-width as needed */
-      margin: 5px 0; /* Adjust margin for mobile view */
-    }
-  
-    .largeLeft,
-    .smallLeft {
-      margin-right: 0; /* Remove margin adjustment for mobile view */
-    }
-  }
-  
+} 

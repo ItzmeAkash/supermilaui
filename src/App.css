@@ -14,7 +14,7 @@ h1, h2, h3, h4, h5, h6, p, span, div, a {
   margin: 0 auto;   /* Center the layout */
   border-radius: 15px; /* Add rounded edges */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
-  overflow: hidden; /* Prevent scrollbars */
+  overflow: auto; 
   height: 100vh;
 }
 

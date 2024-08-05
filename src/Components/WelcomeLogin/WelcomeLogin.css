@@ -1,0 +1,42 @@
+.button {
+    width: 50%;
+    height: 49px;
+    background: linear-gradient(136deg, rgba(59, 32, 225, 39%) 1%, #3B20E1 -14%, #15057B 24%, #090232 63%, #000000 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    margin: 0 auto; /* Centers the button horizontally */
+  }
+  
+  .button:hover {
+    color: white;
+    text-decoration: none;
+  }
+
+  .line {
+    border: 2px solid #8C8895;
+    border-radius: 2px;
+    width: 56%; /* Match the logo width */
+    margin: 20px 0px;
+  }
+  
+  .image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px; 
+  }
+  
+  .button-with-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .button-with-image img {
+    margin-right: 10px; /* Add some spacing between the image and text */
+  }

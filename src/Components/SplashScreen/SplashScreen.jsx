@@ -1,5 +1,5 @@
 import React from 'react';
-import logoImage from '../../Assets/logo.png';
+import compnayLogo from '../../Assets/logo.png';
 import './SplashScreen.css'; 
 
 const SplashScreen = () => {
@@ -8,7 +8,7 @@ const SplashScreen = () => {
       <div className='card border-0'>
         <div className='card-body text-center'>
           <div className='p-4 rounded-circle d-inline-block'>
-            <img src={logoImage} alt='Logo' className='img-fluid splash-logo' />
+            <img src={compnayLogo} alt='Logo' className='img-fluid splash-logo' />
           </div>
         </div>
       </div>

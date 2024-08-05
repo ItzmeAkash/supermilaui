@@ -40,7 +40,7 @@ const Login = () => {
       <ToastContainer />
       <nav className="navbar navbar-expand-lg navbar-light w-100">
         <Link to="/welcomeLogin" className="navbar-brand">
-          <button className="back-button" type="button">
+          <button className="back-button ml-2" type="button">
             <FontAwesomeIcon icon={faAngleLeft} />
           </button>
         </Link>
@@ -85,7 +85,7 @@ const Login = () => {
               checked={rememberMe}
               onChange={(e) => setRememberMe(e.target.checked)}
             />
-            <label className="form-check-label ms-4" htmlFor="rememberMe">Remember Me</label>
+            <label className="form-check-label ms-4" htmlFor="rememberMe" >Remember Me</label>
           </div>
           <button type="submit" className="btn button-submit mb-3">Login</button>
         </form>

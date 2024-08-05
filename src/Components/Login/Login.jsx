@@ -18,15 +18,6 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!rememberMe) {
-      toast.error('Please check the Remember Me to proceed', {
-        autoClose: 1000,
-        toastId: "error",
-        position: "top-center",
-      });
-      
-      return;
-    }
     // Handle login logic here (e.g., API call)
     console.log('Email:', email);
     console.log('Password:', password);
@@ -78,13 +69,7 @@ const Login = () => {
             </span>
           </div>
           <div className="form-check-container d-flex align-items-center mb-3">
-            <input
-              type="checkbox"
-              className="form-check-input"
-              id="rememberMe"
-              checked={rememberMe}
-              onChange={(e) => setRememberMe(e.target.checked)}
-            />
+          <input type="checkbox" className="form-check-input register-check-box" id="terms-login" required />
             <label className="form-check-label ms-4" htmlFor="rememberMe" >Remember Me</label>
           </div>
           <button type="submit" className="btn button-submit mb-3">Login</button>

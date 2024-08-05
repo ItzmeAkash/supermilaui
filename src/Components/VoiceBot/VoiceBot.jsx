@@ -4,31 +4,29 @@ import './VoiceBot.css';
 
 const VoiceBot = () => {
   return (
-    <div className="container-fluid Rectangles">
-      <div className="row no-gutters">
-     
-        <div className="col-6 left-col d-flex flex-column align-items-center">
-        <div class="col">
-          <div className="rectangle largeLeft">
-            <span className="rectangle-text">Social Emotional Learning</span>
+    <div className='container '>
+      <div className='row g-1'>
+        <div className='col-6 mt-4 '>
+          <div className='card left-card large-card justify-content-center align-items-center '>
+          Social Emotional Learning
           </div>
-          </div>
-          <div class="col">
-          <div className="rectangle smallLeft">
-            <span className="rectangle-text">AIDS Awareness</span>
-          </div>
+          <div className='card left-card small-card justify-content-center align-items-center'>
+          AIDS Awareness
           </div>
         </div>
-        <div className="col-6 right-col d-flex flex-column align-items-center">
-        <div class="col">
-          <div className="rectangle largeRight">
-            <span className="rectangle-text">Stress Management</span>
+        <div className='col-6 mt-4'>
+          <div className='card right-card small-card justify-content-center align-items-center '>
+          Mental Health
           </div>
+          <div className='card right-card large-card justify-content-center align-items-center'>
+          Stress Management
           </div>
-          <div class="col">
-          <div className="rectangle smallRight">
-            <span className="rectangle-text">Mental Health</span>
-          </div>
+
+        </div>
+
+        <div className='col-6'>
+        <div className='card full-card justify-content-center align-items-center '>
+          Mmc
           </div>
 
         </div>

@@ -1,89 +1,34 @@
-.Rectangles {
-  padding: 20px;
-}
 
 
-
-.rectangle {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 15px;
+.left-card, .right-card  {
   background: linear-gradient(136deg, rgba(59, 32, 225, 39%) 1%, #3B20E1 -14%, #15057B 24%, #090232 63%, #000000 100%);
-  border: none;
-  transition: background 0.3s ease, color 0.3s ease;
-  margin: 2px;
-}
-
-.rectangle:hover {
-  background: linear-gradient(136deg, #ffffff, #c7c7c7);
-}
-
-.rectangle:hover .rectangle-text {
-  color: black;
-}
-
-.rectangle-text {
-  font-size: 18px;
   color: white;
-  text-align: center;
 }
 
-.largeLeft {
-  width: 215px;
-  height: 310px;
+
+
+.left-card, .right-card {
+  width: 100%;
+  margin-bottom: 10px; 
+  border-radius: 15px;
 }
 
-.largeRight {
-  width: 215px;
-  height: 120px;
+
+.large-card{
+  height: 257px;
 }
 
-.smallLeft {
-  width: 215px;
-  height: 120px;
-}
-
-.smallRight {
-  width: 215px;
-  height: 310px;
-}
-
-.row {
-  --bs-gutter-x: 0.9rem;
-  --bs-gutter-y: 0;
-  display: flex;
-  flex-wrap: wrap;
-  margin-top: calc(-1 * var(--bs-gutter-y));
-  margin-right: calc(-.5 * var(--bs-gutter-x));
-  margin-left: calc(-.5 * var(--bs-gutter-x));
-}
-
-.col-6 {
-  padding-left: 10px;
-  padding-right: 10px;
-}
-
-  @media (max-width: 768px) {
-  .largeLeft, .largeRight {
-    height: 200px;
-  }
-
-  .smallLeft, .smallRight {
-    height: 100px;
-  }
-
+.small-card{
   
+    height: 150px;
 
 }
-@media (max-width: 576px) {
-  .largeLeft, .smallRight {
-    width: 126px;
-    height: 148px;
-  }
 
-  .smallLeft, .largeRight {
-    width: 128px;
-    height: 99px;
-  }
-} 
+.full-card{
+  width: 203%;
+  background: linear-gradient(136deg, rgba(59, 32, 225, 39%) 1%, #3B20E1 -14%, #15057B 24%, #090232 63%, #000000 100%);
+  color: white;
+  height: 150px;
+  border-radius: 15px;
+}
+

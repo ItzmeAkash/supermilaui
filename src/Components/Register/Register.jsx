@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleLeft, faUser, faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons';
@@ -6,6 +6,15 @@ import './Register.css';
 import registerMainImage from '../../Assets/registration.png';
 
 const Register = () => {
+  const [showPopup, setShowPopup] = useState(false);
+  const [termsChecked, setTermsChecked] = useState(false);
+
+  const handlePopupToggle = () => setShowPopup(!showPopup);
+
+  const handleTermsChange = (e) => {
+    setTermsChecked(e.target.checked);
+  };
+
   return (
     <div className="container d-flex flex-column vh-100">
       <nav className="navbar navbar-expand-lg navbar-light w-100">
@@ -39,21 +48,51 @@ const Register = () => {
             <FontAwesomeIcon icon={faLock} className="icon-right" />
           </div>
           <div className="form-check mb-3">
-            <input type="checkbox" className="form-check-input register-check-box" id="terms" required />
+            <input type="checkbox" className="form-check-input register-check-box" id="terms" checked={termsChecked} onChange={handleTermsChange} required />
             <label className="form-check-label-register" htmlFor="terms">
-              By checking the box you agree to our <span className='text-red'>Terms</span> and <span className='text-red'>Conditions</span> 
+              By checking the box you agree to our <a href="#" onClick={handlePopupToggle}><span className='text-red'>Terms</span> and <span className='text-red'>Conditions</span></a>
             </label>
           </div>
           <button type="submit" className="btn button-submit mb-3">Sign Up</button>
           <div className="login-link mt-2">
-            <p className="text-center  text-register">Already registered? <Link to="/login" className="text-primary">Login</Link></p>
+            <p className="text-center text-register">Already registered? <Link to="/login" className="text-primary">Login</Link></p>
           </div>
         </form>
       </div>
+
+      {showPopup && (
+        <div className="popup">
+          <div className="popup-inner">
+            <h2>Terms and Conditions</h2>
+            <div className="popup-content">
+              <p>Here are the terms and conditions...</p>
+              <p>Here are the terms and conditions...</p>
+              <p>Here are the terms and conditions...</p>
+              <p>Here are the terms and conditions...</p>
+              <p>Here are the terms and conditions...</p>
+              <p>Here are the terms and conditions...</p>
+              <p>Here are the terms and conditions...</p>
+              <p>Here are the terms and conditions...</p>
+              <p>Here are the terms and conditions...</p>
+              <p>Here are the terms and conditions...</p>
+              <p>Here are the terms and conditions...</p>
+              <p>Here are the terms and conditions...</p>
+              <p>Here are the terms and conditions...</p>
+
+              {/* Add more content here if needed */}
+            </div>
+            <div className="popup-actions">
+              <div className="form-check">
+                <input type="checkbox" className="form-check-input" id="popupTerms" checked={termsChecked} onChange={handleTermsChange} />
+                <label className="form-check-label" htmlFor="popupTerms">I agree to the terms and conditions</label>
+              </div>
+              <button onClick={handlePopupToggle} className="btn accpet-button mt-3">Accept</button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
 
 export default Register;
-
-

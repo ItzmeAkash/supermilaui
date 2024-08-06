@@ -12,6 +12,10 @@
     margin: 0 auto; /* Centers the button horizontally */
   }
   
+  .text-responsive {
+    font-size: calc(100% + 1vw + 1vh);
+  }
+
   .button:hover {
     color: white;
     text-decoration: none;

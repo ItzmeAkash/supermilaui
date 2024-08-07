@@ -1,7 +1,7 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link } from 'react-router-dom';
-import logo from '../../Assets/logo.png';
+import logo from '../../Assets/COPUBLICAlogo.png';
 import imageGoogle from '../../Assets/google.png'; 
 import './WelcomeLogin.css';
 
@@ -31,10 +31,10 @@ const WelcomeLogin = () => {
         <div className="row justify-content-center">
           <div className="col-12 line"></div>
         </div>
-        <div className="row justify-content-center">
+        <div className="row justify-content-center rounded-5">
           <div className="col-12">
             <Link to="/register" className="button py-2 rounded-5 button-with-image d-flex align-items-center justify-content-center ">
-              <img src={imageGoogle} alt="Image Below Line" className="img-fluid m-2 " style={{ width: '24px', height: '24px' }} />
+              <img src={imageGoogle} alt="Image Below Line" className="img-fluid m-2  fs-3" style={{ width: '24px', height: '24px' }} />
               Sign in with Google
             </Link>
           </div>

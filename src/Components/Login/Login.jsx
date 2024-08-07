@@ -69,16 +69,18 @@ const Login = () => {
             </span>
           </div>
           <div className="form-check-container d-flex align-items-center mb-3">
-          <input type="checkbox" className="form-check-input register-check-box" id="terms-login" required />
-            <label className="form-check-label ms-4" htmlFor="rememberMe" >Remember Me</label>
+            <input type="checkbox" className="form-check-input register-check-box" id="terms-login" required />
+            <label className="form-check-label ms-4" htmlFor="rememberMe">Remember Me</label>
           </div>
-          <button type="submit" className="btn button-submit mb-3">Login</button>
+          <div className="button-container">
+            <button type="submit" className="btn button-submit mb-3 rounded-5">Login</button>
+            <div className="or-container mb-3">Or</div>
+            <button className="btn btn-google d-flex align-items-center rounded-5">
+              <img src={imageGoogle} alt="Google" className="me-2" style={{ width: '20px' }} />
+              <span className="btn-google-text rounded-5 mx-auto rounded-5">Sign in with Google</span>
+            </button>
+          </div>
         </form>
-        <div className="or-container mb-3">Or</div>
-        <button className="btn btn-google d-flex align-items-center">
-          <img src={imageGoogle} alt="Google" className="me-2" style={{ width: '20px' }} />
-          <span className=" btn-google-text mx-auto">Sign in with Google</span>
-        </button>
       </div>
     </div>
   );

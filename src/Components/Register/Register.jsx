@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleLeft, faUser, faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons';
 import './Register.css';
-import registerMainImage from '../../Assets/registration.png';
+import registerMainImage from '../../Assets/register.jpg';
 
 const Register = () => {
   const [showPopup, setShowPopup] = useState(false);
@@ -53,7 +53,7 @@ const Register = () => {
               By checking the box you agree to our <a href="#" onClick={handlePopupToggle}><span className='text-red'>Terms</span> and <span className='text-red'>Conditions</span></a>
             </label>
           </div>
-          <button type="submit" className="btn button-submit mb-3">Sign Up</button>
+          <button type="submit" className="btn button-submit-register mb-3">Sign Up</button>
           <div className="login-link mt-2">
             <p className="text-center text-register">Already registered? <Link to="/login" className="text-primary">Login</Link></p>
           </div>
@@ -70,7 +70,7 @@ const Register = () => {
       </div>
       <div className="popup-content">
       <div className="popup-content">
-              <h3>Terms and Conditions w.e.f 13 January 2024</h3>
+              <h3 className='fw-bold'>Terms and Conditions w.e.f 13 January 2024</h3>
               <h4>1. Acceptance of Terms</h4>
               <p>By accessing or using the COPUBLICA Voicebot Service ("Service"), you agree to comply with and be bound by these Terms and Conditions ("Terms"). If you do not agree to these Terms, please do not use our Service.</p>
               <h4>2. Privacy Policy Integration</h4>
@@ -96,7 +96,7 @@ const Register = () => {
               <h4>12. Contact Information</h4>
               <p>For any inquiries or concerns related to these Terms or our Privacy Policy, please email <a href="mailto:voicebot@copublica.dk">voicebot@copublica.dk</a>.</p>
 
-              <h2>Privacy Policy w.e.f 13rd January 2024</h2>
+              <h2 className='fw-bold'>Privacy Policy w.e.f 13rd January 2024</h2>
               <p>This privacy policy discloses how COPUBLICA collects, uses, shares, and protects the personal data of users of our voicebot service.</p>
               <h4>Data Collection</h4>
               <p>We collect the following types of personal data when you use our service:</p>
@@ -136,7 +136,7 @@ const Register = () => {
           <label className="form-check-label" htmlFor="popupTerms">I agree to the terms and conditions</label>
               </div>
            
-                <button onClick={handlePopupToggle} className="btn accpet-button mt-3">Accept</button>
+                <button onClick={handlePopupToggle} className="btn accpet-button mt-3 rounded-5">Accept</button>
                 
       </div>
     </div>

@@ -73,15 +73,16 @@
   padding: 0.75rem 1.5rem; 
 }
 
-.button-submit {
+.button-submit-register {
   background: linear-gradient(136deg, rgba(59, 32, 225, 39%) 1%, #3B20E1 -14%, #15057B 24%, #090232 63%, #000000 100%);
   color: white;
   width: 100%; /* Same width as input fields */
   border: none;
+  border-radius: 20px;
   max-width: 319px;
 }
 
-.button-submit:hover {
+.button-submit-register:hover {
   color: white;
 }
 

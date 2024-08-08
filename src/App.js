@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Route, Routes, useLocation, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import NavBar from './Components/NavBar/NavBar';
@@ -9,10 +9,10 @@ import SplashScreen from './Components/SplashScreen/SplashScreen';
 import WelcomeLogin from './Components/WelcomeLogin/WelcomeLogin';
 import Login from './Components/Login/Login';
 import Register from './Components/Register/Register';
+import PrivateRoute from './PrivateRoute'; // Import the PrivateRoute component
 
 function SplashScreenWrapper({ children }) {
   const [loading, setLoading] = useState(true);
-  const location = useLocation();
 
   useEffect(() => {
     if (!sessionStorage.getItem('splashDisplayed')) {
@@ -36,18 +36,22 @@ function App() {
         <SplashScreenWrapper>
           <Routes>
             <Route path="/welcomeLogin" element={<WelcomeLogin />} />
-            <Route path="/MainPage" element={
-              <>
-                <NavBar />
-                <header className="App-header">
-                  <VoiceBot />
-                  <FrequentQuestions />
-                </header>
-              </>
-            } />
+            <Route
+              path="/MainPage"
+              element={
+                <PrivateRoute>
+                  <>
+                    <NavBar />
+                    <header className="App-header">
+                      <VoiceBot />
+                      <FrequentQuestions />
+                    </header>
+                  </>
+                </PrivateRoute>
+              }
+            />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
-
             <Route path="*" element={<Navigate to="/welcomeLogin" />} /> {/* Fallback route */}
           </Routes>
         </SplashScreenWrapper>

@@ -110,7 +110,7 @@
   display: flex;
   align-items: center;
   font-size: 12px;
-  margin-left: 10px; /* Add left margin to the entire container */
+  margin-left: -8px; /* Add left margin to the entire container */
   position: -webkit-sticky; /* For Safari */
   position: sticky;
   top: 0; /* Adjust this value to set how far from the top it should stick */
@@ -126,6 +126,7 @@
 
 .form-check-label {
   font-size: 12px;
+  margin-left: 8px; /* Adjust this value to increase or decrease space */
 }
 
 .or-container {
@@ -148,4 +149,96 @@
 
 .btn-google-text:hover {
   color: white;
+}
+
+.forgot-password{
+  cursor: pointer;
+  margin: 3px 0px;
+}
+
+
+
+.popforgot-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1050;
+}
+
+.popforgot-content {
+  background: white;
+  border-radius: 8px;
+  max-width: 350px; /* Reduced for better responsiveness */
+  width: 100%;
+  padding: 20px;
+  position: relative;
+}
+
+.popforgot-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e9ecef;
+  padding-bottom: 10px;
+}
+
+
+.popforgot-body {
+  padding: 20px;
+}
+
+.popforgot-footer {
+  display: flex;
+  justify-content: center; /* Center the button horizontally */
+  padding-top: 10px;
+  border-top: 1px solid #e9ecef;
+}
+
+.forgot-image {
+  width: 157px;
+  height: 157px;
+  margin-bottom: 15px;
+}
+
+.btn-close {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+
+.forgot-button-submit{
+  width: 100%;
+  max-width: 300px; /* Adjust this value to fit your design */
+  margin-bottom: 1rem;
+  background: linear-gradient(136deg, rgba(59, 32, 225, 39%) 1%, #3B20E1 -14%, #15057B 24%, #090232 63%, #000000 100%);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+}
+
+.forgot-button-submit:hover{
+  color: white;
+}
+
+.popforgot-close-icon {
+  border: none;
+  border-radius: 50%;
+  background: radial-gradient(77.11% 77.11% at 50% 22.89%, rgba(255, 38, 0, 0.4) 0%, rgba(255, 38, 0, 0.32) 100%);
+  color: #fff;
+  width: 24px; /* Reduced size */
+  height: 24px; /* Reduced size */
+  font-size: 18px; /* Reduced size */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 10px rgba(195, 38, 93, 0.6);
+  cursor: pointer;
 }

@@ -11,7 +11,7 @@ const WelcomeLogin = () => {
       <div className='container my-auto text-center'>
         <div className="row justify-content-center">
           <div className="col-12">
-            <img src={logo} alt="Logo" className="img-fluid mb-3" style={{ width: '56%' }} />
+            <img  src={logo} alt="Logo" className="img-fluid mb-3" style={{ width: '56%' }} />
           </div>
         </div>
         <div className="row justify-content-center">

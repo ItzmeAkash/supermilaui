@@ -1,13 +1,163 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleLeft, faUser, faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons';
 import './Register.css';
 import registerMainImage from '../../Assets/register.jpg';
+import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const Register = () => {
+  const [formData, setFormData] = useState({
+    username: "",
+    email: "",
+    password: "",
+    confirmPassword: ""
+  });
+  const [userId, setUserId] = useState(null);
+  const [otp, setOtp] = useState(["", "", "", "", "", ""]);
+  const [showOtpInput, setShowOtpInput] = useState(false);
+  const [showOtpPopup, setShowOtpPopup] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [timer, setTimer] = useState(60);
+  const [isResendDisabled, setIsResendDisabled] = useState(true);
+  const [loading, setLoading] = useState(false);
+  const [notification, setNotification] = useState("");
+  const navigate = useNavigate();
   const [showPopup, setShowPopup] = useState(false);
   const [termsChecked, setTermsChecked] = useState(false);
+
+  useEffect(() => {
+    let interval;
+    if (showOtpInput && timer > 0) {
+      interval = setInterval(() => {
+        setTimer((prevTimer) => prevTimer - 1);
+      }, 1000);
+    } else if (timer === 0) {
+      setIsResendDisabled(false);
+      clearInterval(interval);
+    }
+    return () => clearInterval(interval);
+  }, [showOtpInput, timer]);
+
+  const handleChange = (e) => {
+    const { id, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [id]: value
+    }));
+  };
+
+  const handleOtpChange = (element, index) => {
+    if (/^\d*$/.test(element.value)) {
+      let newOtp = [...otp];
+      newOtp[index] = element.value;
+      setOtp(newOtp);
+
+      // Automatically move to the next input box if a digit is entered
+      if (element.value && index < 5) {
+        document.getElementById(`otp${index + 1}`).focus();
+      }
+    }
+  };
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+
+  const toggleConfirmPasswordVisibility = () => {
+    setShowConfirmPassword(!showConfirmPassword);
+  };
+
+  const validateEmail = (email) => {
+    const re = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+    return re.test(String(email).toLowerCase());
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const { username, email, password, confirmPassword } = formData;
+
+    if (!validateEmail(email)) {
+      // alert("Please enter a valid email address.");
+      toast.error("Please enter a valid email address.");
+      return;
+    }
+
+    if (password.length < 8) {
+      // alert("Password must be at least 8 characters long.");
+      toast.error("Password must be at least 8 characters long.");
+
+      return;
+    }
+
+    if (password !== confirmPassword) {
+      // alert("Passwords do not match.");
+      toast.error("Passwords do not match.");
+      return;
+    }
+
+    setLoading(true);
+
+    try {
+      const response = await axios.post("http://localhost:8000/register", { username, email, password });
+      console.log(response.data);
+      setUserId(response.data.userId);
+      setShowOtpInput(true);
+      setShowOtpPopup(true); // Show OTP popup
+      setTimer(60);
+      setIsResendDisabled(true);
+      setLoading(false);
+      setNotification("OTP has been sent to your email.");
+      toast.success("OTP has been sent to your email."); // Show toast notification
+    } catch (error) {
+      console.error('There was an error!', error);
+      setLoading(false);
+      setNotification("Failed to send OTP. Please try again.");
+      toast.error("Failed to send OTP. Please try again.");
+    }
+  };
+
+  const handleOtpSubmit = async (e) => {
+    e.preventDefault();
+    const enteredOtp = otp.join("");
+
+    try {
+      const response = await axios.post("http://localhost:8000/register/verify-otp", { userId, otp: enteredOtp });
+      console.log(response.data);
+      toast.success("Registration successful! Please Login!"); // Show success message
+      setTimeout(() => {
+        navigate("/login");
+      }, 1500);
+     
+
+    } catch (error) {
+      console.error('There was an error!', error);
+      // alert('Invalid OTP');
+      toast.error("Invalid OTP");
+
+    }
+  };
+
+  const handleResendOtp = async () => {
+    setLoading(true);
+
+    try {
+      const response = await axios.post("http://localhost:8000/register/resend-otp", { userId });
+      console.log(response.data);
+      setTimer(60);
+      setIsResendDisabled(true);
+      setLoading(false);
+      setNotification("OTP has been resent to your email.");
+    } catch (error) {
+      console.error('There was an error!', error);
+      setLoading(false);
+      setNotification("Failed to resend OTP. Please try again.");
+    }
+  };
 
   const handlePopupToggle = () => setShowPopup(!showPopup);
 
@@ -17,6 +167,17 @@ const Register = () => {
 
   return (
     <div className="container d-flex flex-column vh-100">
+        <ToastContainer
+        position="top-center"
+        autoClose={1000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
       <nav className="navbar navbar-expand-lg navbar-light w-100">
         <Link to="/welcomeLogin" className="navbar-brand">
           <button className="back-button ml-2" type="button">
@@ -30,21 +191,21 @@ const Register = () => {
           <h1 className="main-text">Get Started</h1>
           <p className="text-black">by creating a <span className="text-red">free account</span></p>
         </div>
-        <form className="form-container d-flex flex-column align-items-center mt-2">
+        <form className="form-container d-flex flex-column align-items-center mt-2" onSubmit={handleSubmit}>
           <div className="field mb-3 position-relative">
-            <input type="text" className="form-control" id="fullName" placeholder="Full Name" required />
+            <input type="text" className="form-control" id="username" placeholder="Full Name" value={formData.username} onChange={handleChange} required />
             <FontAwesomeIcon icon={faUser} className="icon-right" />
           </div>
           <div className="field mb-3 position-relative">
-            <input type="email" className="form-control" id="email" placeholder="Email Address" required />
+            <input type="email" className="form-control" id="email" placeholder="Email Address" value={formData.email} onChange={handleChange} required />
             <FontAwesomeIcon icon={faEnvelope} className="icon-right" />
           </div>
           <div className="field mb-3 position-relative">
-            <input type="password" className="form-control" id="password" placeholder="Password" required />
+            <input type="password" className="form-control" id="password" placeholder="Password" value={formData.password} onChange={handleChange} required />
             <FontAwesomeIcon icon={faLock} className="icon-right" />
           </div>
           <div className="field mb-3 position-relative">
-            <input type="password" className="form-control" id="confirmPassword" placeholder="Confirm Password" required />
+            <input type="password" className="form-control" id="confirmPassword" placeholder="Confirm Password" value={formData.confirmPassword} onChange={handleChange} required />
             <FontAwesomeIcon icon={faLock} className="icon-right" />
           </div>
           <div className="form-check mb-3">
@@ -142,8 +303,31 @@ const Register = () => {
     </div>
   </div>
 )}
+{showOtpPopup && (
+  <div className="otp-popup">
+    <div className="otp-popup-content">
+      <h2>OTP Verification</h2>
+      <p>Enter the 6-digit OTP sent to your email:</p>
+      <form className="otp-form" onSubmit={handleOtpSubmit}>
+        {otp.map((digit, index) => (
+          <input key={index} id={`otp${index}`} type="text" maxLength="1" value={digit} onChange={(e) => handleOtpChange(e.target, index)} />
+        ))}
+        <button type="submit" className="btn verify-button rounded-5 mt-3">Verify</button>
+      </form>
+      <div className="resend-otp mt-3">
+        <p>
+          Didn't receive the OTP?{' '}
+          <button className="btn btn-link" onClick={handleResendOtp} disabled={isResendDisabled}>
+            Resend OTP {isResendDisabled && `in ${timer}s`}
+          </button>
+        </p>
+      </div>
+    </div>
+  </div>
+)}
     </div>
   );
-}
+};
 
 export default Register;
+

@@ -219,7 +219,7 @@ const Register = () => {
             <p className="text-center text-register">Already registered? <Link to="/login" className="text-primary">Login</Link></p>
           </div>
         </form>
-      </div>
+      </div>  
 
       {showPopup && (
   <div className="popup">
@@ -297,7 +297,7 @@ const Register = () => {
           <label className="form-check-label" htmlFor="popupTerms">I agree to the terms and conditions</label>
               </div>
            
-                <button onClick={handlePopupToggle} className="btn accpet-button mt-3 rounded-5">Accept</button>
+                <button onClick={handlePopupToggle} className="btn accpet-button mt-3 rounded-5">Close</button>
                 
       </div>
     </div>

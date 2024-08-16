@@ -12,9 +12,6 @@ const FrequentQuestions = () => {
     },
     {
       question: "What is HIV type 2?",
-    },
-    {
-      question: "What is HIV and explain it?",
     }
     // Add more questions as needed
   ];
